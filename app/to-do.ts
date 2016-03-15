@@ -1,8 +1,13 @@
-class Task {
+interface ITask {
+  description: string;
   done: boolean;
-  constructor(public description: string, public priority: string){
-    this.done = false;
-  }
+  priority: string;
+  markDone(): void;
+}
+
+class Task implements ITask {
+  done: boolean = false;
+  constructor(public description: string, public priority: string){}
   markDone(){
     this.done = true;
   }
