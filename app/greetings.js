@@ -1,6 +1,5 @@
 var Greeter = (function () {
     function Greeter(message) {
-        this.message = message;
         this.greeting = message;
     }
     Greeter.prototype.greet = function () {
