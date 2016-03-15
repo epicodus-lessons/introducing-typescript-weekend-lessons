@@ -3,6 +3,6 @@ var findSum = function(first: number, second: number){
   alert("The sum of your two numbers is: " + sum);
 }
 
-var number = prompt('please enter a number.');
-var otherNumber = prompt('enter another number.');
+var number = parseInt(prompt('please enter a number.'));
+var otherNumber = parseInt(prompt('enter another number.'));
 findSum(number, otherNumber);
