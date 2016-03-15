@@ -4,4 +4,4 @@ var findSum = function (first, second) {
 };
 var number = parseInt(prompt('please enter a number.'));
 var otherNumber = parseInt(prompt('enter another number.'));
-findSum(number);
+findSum(number, otherNumber);
