@@ -1,12 +1,7 @@
 class Greeter {
-  greeting: string;
-
-  constructor (message: string) {
-    this.greeting = message;
-  }
-
+  constructor (public message: string) {  }
   greet() {
-    return "Hello, " + this.greeting;
+    return "Hello, " + this.message;
   }
 }
 

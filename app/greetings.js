@@ -1,9 +1,9 @@
 var Greeter = (function () {
     function Greeter(message) {
-        this.greeting = message;
+        this.message = message;
     }
     Greeter.prototype.greet = function () {
-        return "Hello, " + this.greeting;
+        return "Hello, " + this.message;
     };
     return Greeter;
 }());
