@@ -19,7 +19,17 @@ class Task implements ITask {
   }
 }
 
-class HomeTask extends Task {}
+class HomeTask extends Task {
+  constructor(public description: string, public priority: string, public assignedTo?: IPerson){
+    super(description, priority);
+  }
+}
+
+class WorkTask extends Task {
+  constructor(public dueDate: Date, public description: string, public priority: string, public assignedTo: IPerson){
+    super(description, priority, assignedTo);
+  }
+}
 
 class HobbyTask extends Task {
   constructor(public description: string){
@@ -27,15 +37,24 @@ class HobbyTask extends Task {
   }
 }
 
-class WorkTask extends Task {
-  constructor(public dueDate: Date, public description: string, public priority: string){
-    super(description, priority);
-  }
+var diane: IPerson = {
+  name: "Diane D",
+  email: "diane@epicodus.com"
+}
+
+var thor: IPerson = {
+  name: "Thor Son of Odin",
+  email: "thor@asgard.com"
+}
+
+var loki: IPerson = {
+  name: "God of mischief",
+  email: "loki@geocities.com"
 }
 
 var tasks = [];
 tasks.push(new HomeTask("Do the dishes.", "High"));
-tasks.push(new HomeTask("Buy chocolate.", "Low"));
+tasks.push(new HomeTask("Buy chocolate.", "Low", diane));
 tasks.push(new HomeTask("Wash the laundry.", "High"));
 tasks[0].markDone();
 
@@ -48,8 +67,8 @@ tomorrow.setDate(today.getDate() + 1);
 var nextDay = new Date();
 nextDay.setDate(today.getDate() + 2);
 
-tasks.push(new WorkTask(today, "Update blog.", "High"));
-tasks.push(new WorkTask(tomorrow, "Go to meeting.", "Medium"));
-tasks.push(new WorkTask(nextDay, "Clean ceiling.", "Low"));
+tasks.push(new WorkTask(today, "Update blog.", "High", diane));
+tasks.push(new WorkTask(tomorrow, "Go to meeting.", "Medium", thor));
+tasks.push(new WorkTask(nextDay, "Clean ceiling.", "Low", loki));
 
 console.log(tasks);
