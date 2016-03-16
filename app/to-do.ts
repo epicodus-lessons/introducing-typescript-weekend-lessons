@@ -1,13 +1,19 @@
+interface IPerson {
+  name: string;
+  email: string;
+}
+
 interface ITask {
   description: string;
   done: boolean;
   priority: string;
   markDone(): void;
+  assignedTo?: IPerson;
 }
 
 class Task implements ITask {
   done: boolean = false;
-  constructor(public description: string, public priority: string){}
+  constructor(public description: string, public priority: string, public assignedTo?: IPerson){}
   markDone(){
     this.done = true;
   }
